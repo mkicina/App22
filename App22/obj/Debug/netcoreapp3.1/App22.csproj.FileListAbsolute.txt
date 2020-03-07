@@ -1,0 +1,11 @@
+/home/martin/RiderProjects/App22/App22/bin/Debug/netcoreapp3.1/App22
+/home/martin/RiderProjects/App22/App22/bin/Debug/netcoreapp3.1/App22.deps.json
+/home/martin/RiderProjects/App22/App22/bin/Debug/netcoreapp3.1/App22.runtimeconfig.json
+/home/martin/RiderProjects/App22/App22/bin/Debug/netcoreapp3.1/App22.runtimeconfig.dev.json
+/home/martin/RiderProjects/App22/App22/bin/Debug/netcoreapp3.1/App22.dll
+/home/martin/RiderProjects/App22/App22/bin/Debug/netcoreapp3.1/App22.pdb
+/home/martin/RiderProjects/App22/App22/obj/Debug/netcoreapp3.1/App22.csprojAssemblyReference.cache
+/home/martin/RiderProjects/App22/App22/obj/Debug/netcoreapp3.1/App22.AssemblyInfoInputs.cache
+/home/martin/RiderProjects/App22/App22/obj/Debug/netcoreapp3.1/App22.AssemblyInfo.cs
+/home/martin/RiderProjects/App22/App22/obj/Debug/netcoreapp3.1/App22.dll
+/home/martin/RiderProjects/App22/App22/obj/Debug/netcoreapp3.1/App22.pdb
