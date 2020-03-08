@@ -6,7 +6,7 @@ namespace App22
 
         public Level(Board board)
         {
-            this._board = board;
+            _board = board;
         }
 
         public void NextLevel(int levelNum)

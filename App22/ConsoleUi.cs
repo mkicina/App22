@@ -2,12 +2,12 @@ using System;
 
 namespace App22
 {
-    public class ConsoleUI
+    public class ConsoleUi
     {
         private Board _board;
-        //private Game _game;
+        private int _moves=0;
         
-        public ConsoleUI(Board board)
+        public ConsoleUi(Board board)
         {
             _board = board;
         }
@@ -43,11 +43,16 @@ namespace App22
             {
                 PrintField();
                 ProcessInput();
+                _moves++;
             } while (!_board.IsSolved());
             
-
             PrintField();
             Console.WriteLine("You won level!");
+        }
+
+        public int GetMoves()
+        {
+            return _moves;
         }
         
         private void ProcessInput()
