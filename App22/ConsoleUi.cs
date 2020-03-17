@@ -54,6 +54,11 @@ namespace App22
         {
             return _moves;
         }
+
+        public void SetMoves(int moves)
+        {
+            _moves = moves;
+        }
         
         private void ProcessInput()
         {

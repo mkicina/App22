@@ -1,5 +1,6 @@
 using System;
 using App22.Scoreboard;
+using Microsoft.VisualBasic.CompilerServices;
 
 namespace App22
 {
@@ -14,7 +15,6 @@ namespace App22
         private string _comment;
         private Player _player;
         
-        private readonly IScoreService scoreService = new ScoreServiceFile();
         
         public Game(ConsoleUi consoleUi, Level level)
         {
@@ -25,18 +25,31 @@ namespace App22
 
         public bool IsGameWon()
         {
-            if (levelNum > 2)
+            if (levelNum > 1)
             {
                 Console.WriteLine("You won game!");
                 
                 Console.WriteLine("How many stars would you give this game? (Max 5 stars)");
-                Rating rating = new Rating();
-                rating.Stars = Console.Read();
+                int rate;
+                
+                while(true)
+                    {
+                        if (int.TryParse(Console.ReadLine(), out rate) && rate >= 0 && rate < 6)
+                        {
+                            Console.WriteLine("All right");
+                            break;
+                        }
+                        Console.WriteLine("That was invalid. Enter a number from 0 to 5.");
+                    }
+                
+                Rating rating = new Rating(); 
+                rating.Stars = rate;
                 _player.Rating = rating;
 
                 Console.WriteLine("Please leave a comment for our game!");
+                _comment = Console.ReadLine();
                 Comment comment = new Comment();
-                comment.Notion = Console.ReadLine();
+                comment.Notion = _comment;
                 _player.Comment = comment;
 
                 return true;
@@ -68,6 +81,7 @@ namespace App22
             Score score = new Score();
             score.Points = _consoleUi.GetMoves();
             _player.Score = score;
+            _consoleUi.SetMoves(0);
 
             _leaderboard.AddPlayer(_player);
             
@@ -98,14 +112,23 @@ namespace App22
 
         public void ShowScore()
         {
+            _leaderboard.SaveLeaderboard();
             for (int i = 0; i < _leaderboard.GetArray().Count; i++)
             {
                 Console.WriteLine("Name: " + _leaderboard.GetArray()[i].GetName());
                 Console.WriteLine("Score: " + _leaderboard.GetArray()[i].Score.Points);
                 Console.WriteLine("Rating: " + _leaderboard.GetArray()[i].Rating.Stars);
                 Console.WriteLine("Comment: " + _leaderboard.GetArray()[i].Comment.Notion);
+                Console.WriteLine();
+                Console.WriteLine("----------------------------------");
+                Console.WriteLine();
             }
         }
-        
+
+        public void LoadService()
+        {
+            _leaderboard.LoadLeaderboard();
+            ShowScore();
+        }
     }
 }
