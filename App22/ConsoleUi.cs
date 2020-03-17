@@ -12,7 +12,7 @@ namespace App22
             _board = board;
         }
         
-        public void PrintField()
+        public void Print()
         {
             Console.WriteLine();
             for (var row = 0; row < _board.RowCount; row++)
@@ -37,16 +37,16 @@ namespace App22
             Console.WriteLine();
         }
         
-        public void Play()
+        public void Run()
         {
             do
             {
-                PrintField();
+                Print();
                 ProcessInput();
                 _moves++;
             } while (!_board.IsSolved());
             
-            PrintField();
+            Print();
             Console.WriteLine("You won level!");
         }
 

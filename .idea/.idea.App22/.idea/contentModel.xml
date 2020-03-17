@@ -7,14 +7,20 @@
       <e p="App22" t="IncludeRecursive">
         <e p="App22.csproj" t="IncludeRecursive" />
         <e p="Board.cs" t="Include" />
-        <e p="ConsoleUI.cs" t="Include" />
+        <e p="ConsoleUi.cs" t="Include" />
         <e p="Game.cs" t="Include" />
         <e p="Level.cs" t="Include" />
         <e p="Light.cs" t="Include" />
         <e p="Program.cs" t="Include" />
         <e p="Scoreboard" t="Include">
+          <e p="Comment.cs" t="Include" />
+          <e p="IScoreService.cs" t="Include" />
           <e p="Leaderboard.cs" t="Include" />
           <e p="Player.cs" t="Include" />
+          <e p="Rating.cs" t="Include" />
+          <e p="Score.cs" t="Include" />
+          <e p="ScoreServiceFile.cs" t="Include" />
+          <e p="Service.txt" t="Include" />
         </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
