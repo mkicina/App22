@@ -53,29 +53,24 @@ namespace App22.Scoreboard
         {
             string fullPath = @"Service.txt";
             string[] lines = File.ReadAllLines(fullPath);
-            Console.WriteLine(int.Parse(lines[1]));
-            Console.WriteLine(lines[1].Length);
             int size = lines.Length / 4;
             int k = 0;
             for (int i = 0; i < size; i++)
             {
                 Player player = new Player(lines[k++]);
-                //k++;
-                //_board.Add(new Player(lines[k++]));
-                //_board[i].SetName(lines[k++]);
                 _board.Add(player);
                 
-                //int scor = int.Parse(lines[k++]);
-                //k++;
                 Score score = new Score();
                 score.Points = int.Parse(lines[k++]);
-                //score.Points = int.Parse(lines[k++]);
                 player.Score = score;
-                Console.WriteLine("MJE KSOKR:" + player.Score.Points);
+
+                Rating rating = new Rating();
+                rating.Stars = int.Parse(lines[k++]);
+                player.Rating = rating;
                 
-                //_board[i].Score.Points = int.Parse(lines[k++]);
-                /*_board[i].Rating.Stars = int.Parse(lines[k++]);
-                _board[i].Comment.Notion = lines[k++];*/
+                Comment comment = new Comment();
+                comment.Notion = lines[k++];
+                player.Comment = comment;
             }
         }
     }
