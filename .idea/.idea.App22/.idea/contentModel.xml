@@ -23,12 +23,10 @@
         </e>
         <e p="Scoreboard" t="Include">
           <e p="Comment.cs" t="Include" />
-          <e p="IScoreService.cs" t="Include" />
           <e p="Leaderboard.cs" t="Include" />
           <e p="Player.cs" t="Include" />
           <e p="Rating.cs" t="Include" />
           <e p="Score.cs" t="Include" />
-          <e p="ScoreServiceFile.cs" t="Include" />
           <e p="Service.txt" t="Include" />
         </e>
         <e p="bin" t="ExcludeRecursive" />
@@ -43,6 +41,7 @@
       <e p="App22.UnitTests" t="IncludeRecursive">
         <e p="App22.UnitTests.csproj" t="IncludeRecursive" />
         <e p="BoardTest.cs" t="Include" />
+        <e p="ServiceTest.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
