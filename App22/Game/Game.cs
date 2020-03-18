@@ -1,6 +1,5 @@
 using System;
 using App22.Scoreboard;
-using Microsoft.VisualBasic.CompilerServices;
 
 namespace App22
 {
@@ -129,6 +128,7 @@ namespace App22
         {
             _leaderboard.LoadLeaderboard();
             ShowScore();
+            //_leaderboard.ClearLeaderboard();
         }
     }
 }

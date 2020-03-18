@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
@@ -72,6 +71,13 @@ namespace App22.Scoreboard
                 comment.Notion = lines[k++];
                 player.Comment = comment;
             }
+        }
+
+        public void ClearLeaderboard()
+        {
+            string fullPath = @"Service.txt";
+            String str="";
+            File.WriteAllText(fullPath,str);
         }
     }
 }
