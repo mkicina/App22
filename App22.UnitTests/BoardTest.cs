@@ -1,3 +1,4 @@
+using App22.Game;
 using NUnit.Framework;
 
 namespace App22.UnitTests
@@ -36,9 +37,9 @@ namespace App22.UnitTests
         public void TestChangeState()
         {
             Board board = new Board(5, 5);
-            Assert.IsFalse(board[2,2].getState());
-            board[2,2].changeState();
-            Assert.IsTrue(board[2,2].getState());
+            Assert.IsFalse(board[2,2].GetState());
+            board[2,2].ChangeState();
+            Assert.IsTrue(board[2,2].GetState());
         }
         
         [Test]
@@ -49,7 +50,7 @@ namespace App22.UnitTests
             {
                 for (int j = 0; j < 5; j++)
                 {
-                    board[i,j].setState(false);
+                    board[i,j].SetState(false);
                 }   
             }
             Assert.IsTrue(board.IsSolved());

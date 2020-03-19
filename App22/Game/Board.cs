@@ -1,4 +1,4 @@
-namespace App22
+namespace App22.Game
 {
     public class Board
     {
@@ -41,25 +41,25 @@ namespace App22
         }
         
 
-        public void changeStates(int row, int column)
+        public void ChangeStates(int row, int column)
         {
             var light = GetTile(row, column);
-            light.changeState();
+            light.ChangeState();
             if (row - 1 >= 0)
             {
-                GetTile(row-1, column).changeState();   
+                GetTile(row-1, column).ChangeState();   
             }
             if (column - 1 >= 0)
             {
-                GetTile(row, column-1).changeState();
+                GetTile(row, column-1).ChangeState();
             }
             if (row + 1 < RowCount)
             {
-                GetTile(row+1, column).changeState();
+                GetTile(row+1, column).ChangeState();
             }
             if (column + 1 < ColumnCount)
             {
-                GetTile(row, column+1).changeState();
+                GetTile(row, column+1).ChangeState();
             }
         }
 
@@ -69,7 +69,7 @@ namespace App22
                 {
                     for (var column = 0; column < ColumnCount; column++)
                     {
-                        if (_lights[row, column].getState())
+                        if (_lights[row, column].GetState())
                         {
                             return false;
                         }

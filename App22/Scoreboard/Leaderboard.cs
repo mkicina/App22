@@ -6,7 +6,7 @@ namespace App22.Scoreboard
 {
     public class Leaderboard
     {
-        private List<Player> _board;
+        private readonly List<Player> _board;
 
         public Leaderboard()
         {

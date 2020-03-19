@@ -1,38 +1,38 @@
-namespace App22
+namespace App22.Game
 {
     public class Light
     {
-        private bool isLightOn = false;
+        private bool _isLightOn = false;
         public Light(bool state)
         {
-            isLightOn = state;
+            _isLightOn = state;
         }
 
-        public void changeState()
+        public void ChangeState()
         {
-            if (isLightOn)
+            if (_isLightOn)
             {
-                isLightOn = false;
+                _isLightOn = false;
                 return;
             }
 
-            isLightOn = true;
+            _isLightOn = true;
         }
         
-        public bool getState()
+        public bool GetState()
         {
-            return isLightOn;
+            return _isLightOn;
         }
 
-        public void setState(bool state)
+        public void SetState(bool state)
         {
-            if (state && !isLightOn)
+            if (state && !_isLightOn)
             {
-                changeState();
+                ChangeState();
             }
-            else if (!state && isLightOn)
+            else if (!state && _isLightOn)
             {
-                changeState();
+                ChangeState();
             }
         }
     }

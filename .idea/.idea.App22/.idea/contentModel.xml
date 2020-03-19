@@ -22,6 +22,8 @@
           <e p="Program.cs" t="Include" />
         </e>
         <e p="Scoreboard" t="Include">
+          <e p=".goutputstream-SWCMH0" t="Include" />
+          <e p=".goutputstream-T1RZH0" t="Include" />
           <e p="Comment.cs" t="Include" />
           <e p="Leaderboard.cs" t="Include" />
           <e p="Player.cs" t="Include" />

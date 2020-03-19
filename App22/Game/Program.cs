@@ -1,14 +1,10 @@
-﻿using System.IO;
-
-namespace App22
+﻿namespace App22.Game
 {
-    class Program
+    static class Program
     {
-        static void Main(string[] args)
-        {
+        static void Main(string[] args){
             
-            
-            Board board=new Board(5,5);
+        Board board=new Board(5,5);
             Level level = new Level(board);
             ConsoleUi ui = new ConsoleUi(board);
             Game game = new Game(ui, level);

@@ -5,9 +5,6 @@ namespace App22.Scoreboard
     public class Player
     {
         private string _name;
-        private Score _score;
-        private Comment _comment;
-        private Rating _rating;
 
         public Player(string name)
         {

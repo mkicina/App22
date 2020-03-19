@@ -1,18 +1,18 @@
 using System;
 
-namespace App22
+namespace App22.Game
 {
     public class ConsoleUi
     {
-        private Board _board;
+        private readonly Board _board;
         private int _moves=0;
         
         public ConsoleUi(Board board)
         {
             _board = board;
         }
-        
-        public void Print()
+
+        private void Print()
         {
             Console.WriteLine();
             for (var row = 0; row < _board.RowCount; row++)
@@ -21,7 +21,7 @@ namespace App22
                 {
                     var light = _board[row, column];
                     Console.Write(" ");
-                    bool state = light.getState();
+                    bool state = light.GetState();
                     if (state)
                     {
                         Console.Write("{0, 2}", "0");
@@ -70,7 +70,7 @@ namespace App22
                 int row = int.Parse(Console.ReadLine());
                 Console.Write("Enter column: ");
                 int column = int.Parse(Console.ReadLine());
-                _board.changeStates(row, column);
+                _board.ChangeStates(row, column);
             }
             catch (IndexOutOfRangeException)
             {

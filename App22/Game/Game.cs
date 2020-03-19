@@ -1,14 +1,14 @@
 using System;
 using App22.Scoreboard;
 
-namespace App22
+namespace App22.Game
 {
     public class Game
     {
-        private ConsoleUi _consoleUi;
-        private Level _level;
-        private int levelNum = 1;
-        private Leaderboard _leaderboard;
+        private readonly ConsoleUi _consoleUi;
+        private readonly Level _level;
+        private int _levelNum = 1;
+        private readonly Leaderboard _leaderboard;
         private string _name;
         private int _rating;
         private string _comment;
@@ -22,33 +22,30 @@ namespace App22
             _leaderboard=new Leaderboard();
         }
 
-        public bool IsGameWon()
+        private bool IsGameWon()
         {
-            if (levelNum > 1)
+            if (_levelNum > 3)
             {
                 Console.WriteLine("You won game!");
-                
+
                 Console.WriteLine("How many stars would you give this game? (Max 5 stars)");
-                int rate;
-                
+
                 while(true)
                     {
-                        if (int.TryParse(Console.ReadLine(), out rate) && rate >= 0 && rate < 6)
+                        if (int.TryParse(Console.ReadLine(), out _rating) && _rating >= 0 && _rating < 6)
                         {
                             Console.WriteLine("All right");
                             break;
                         }
                         Console.WriteLine("That was invalid. Enter a number from 0 to 5.");
                     }
-                
-                Rating rating = new Rating(); 
-                rating.Stars = rate;
+
+                Rating rating = new Rating {Stars = _rating};
                 _player.Rating = rating;
 
                 Console.WriteLine("Please leave a comment for our game!");
                 _comment = Console.ReadLine();
-                Comment comment = new Comment();
-                comment.Notion = _comment;
+                Comment comment = new Comment {Notion = _comment};
                 _player.Comment = comment;
 
                 return true;
@@ -60,7 +57,8 @@ namespace App22
         public void SetupMenu()
         {
             Console.WriteLine("Welcome!");
-            Console.Write("Enter your name:");
+            Console.WriteLine("Rows and columns are indexed from zero. (0-4)");
+            Console.Write("Enter your name: ");
             
             _name = Console.ReadLine();
             
@@ -68,13 +66,13 @@ namespace App22
             Start();
         }
 
-        public void Start()
+        private void Start()
         {
             do
             {
-                _level.NextLevel(levelNum);
+                _level.NextLevel(_levelNum);
                 _consoleUi.Run();
-                levelNum++;
+                _levelNum++;
             } while (!IsGameWon());
 
             Score score = new Score();
@@ -88,14 +86,14 @@ namespace App22
             
         }
 
-        public void AfterGameSetup()
+        private void AfterGameSetup()
         {
             Console.WriteLine("Do you want to play again?  Y/N");
             string answer = Console.ReadLine();
             
             if (answer == "y")
             {
-                levelNum = 1;
+                _levelNum = 1;
                 SetupMenu();
             }
             else if (answer == "n")
@@ -109,7 +107,7 @@ namespace App22
             }
         }
 
-        public void ShowScore()
+        private void ShowScore()
         {
             _leaderboard.SaveLeaderboard();
             for (int i = 0; i < _leaderboard.GetArray().Count; i++)

@@ -1,8 +1,8 @@
-namespace App22
+namespace App22.Game
 {
     public class Level
     {
-        private Board _board;
+        private readonly Board _board;
 
         public Level(Board board)
         {
@@ -15,52 +15,51 @@ namespace App22
             switch (levelNum)
             {
                 case 1:
-                    setLevelOne();
+                    SetLevelOne();
                     break;
                 case 2:
-                    setLevelTwo();
+                    SetLevelTwo();
                     break;
 
                 case 3:
-                    setLevelThree();
-                    break;
-
-                case 4:
-                    setLevelFour();
+                    SetLevelThree();
                     break;
             }
-        }
 
-        public void setLevelOne()
-        {
-            _board[0, 0].setState(true);
-            _board[1, 0].setState(true);
-            _board[0, 1].setState(true);
+            void SetLevelOne()
+            {
+                _board[0, 0].SetState(true);
+                _board[1, 0].SetState(true);
+                _board[1, 1].SetState(true);
+                _board[2, 0].SetState(true);
+            }
+
+            void SetLevelTwo()
+            {
+                _board[3, 0].SetState(true);
+                _board[4, 0].SetState(true);
+                _board[4, 1].SetState(true);
+                _board[2, 2].SetState(true);
+                _board[2, 1].SetState(true);
+                _board[1, 2].SetState(true);
+                _board[2, 3].SetState(true);
+                _board[3, 2].SetState(true);
+            }
+
+            void SetLevelThree()
+            {
+                _board[1, 1].SetState(true);
+                _board[1, 0].SetState(true);
+                _board[0, 1].SetState(true);
+                _board[1, 2].SetState(true);
+                _board[2, 1].SetState(true);
+
+                _board[3, 4].SetState(true);
+                _board[3, 3].SetState(true);
+                _board[3, 2].SetState(true);
+                _board[2, 3].SetState(true);
+                _board[4, 3].SetState(true);
+            }
         }
-        
-        public void setLevelTwo()
-        {
-            _board[0, 0].setState(true);
-            _board[1, 0].setState(true);
-            _board[0, 1].setState(true);
-            _board[4, 4].setState(true);
-            _board[3, 4].setState(true);
-            _board[4, 3].setState(true);
-        }
-        
-        public void setLevelThree()
-        {
-            _board[0, 0].setState(true);
-            _board[1, 0].setState(true);
-            _board[0, 1].setState(true);
-        }
-        
-        public void setLevelFour()
-        {
-            _board[0, 0].setState(true);
-            _board[1, 0].setState(true);
-            _board[0, 1].setState(true);
-        }
-        
     }
 }
